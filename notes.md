@@ -1,0 +1,14 @@
+- npm init --y
+- npm install --save-dev nodemon
+- npm i express
+- npm i bcryptjs
+- npm i cors
+- npm i helmet
+- npm i jsonwebtoken
+- npm i knex
+- npm i sqlite3
+- change scripts
+
+- knex init (makes knexfile)
+- knex migrate:make bootstrap
+- knex migrate:latest (makes auth.db3 file)
