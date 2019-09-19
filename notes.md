@@ -19,3 +19,9 @@
 - added "Department" field in schema table
 - knex migrate:rollback
 - knex migrate:latest
+
+# TESTING
+
+- add depdencies:
+  - npm i
+- add test script to package.json
