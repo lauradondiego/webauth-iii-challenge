@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken"); // add this library
 
 const Users = require("../users/users-model.js");
-const secrets = require("../config/secrets");
+const secrets = require("../config/secret");
 
 // for endpoints beginning with /api/auth
 router.post("/register", (req, res) => {
