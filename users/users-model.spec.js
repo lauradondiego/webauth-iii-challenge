@@ -1,0 +1,53 @@
+const Users = require("./users-model");
+const db = require("../database/dbConfig");
+
+describe("users model", () => {
+  beforeEach(async () => {
+    await db("users").truncate();
+  });
+
+  it("should set environment to testing", () => {
+    expect(process.env.DB_ENV).toBe("testing");
+    // find DB_ENV in the package.json under test
+  });
+
+  // test for create
+  describe("add()", () => {
+    it("should add a user into the db", async () => {
+      await Users.add({
+        username: "lauravictoria",
+        password: "cats",
+        department: "student"
+      });
+      let users = await db("users");
+      //   console.log(users);
+      // expect(users).toHaveLength(0); // fails
+      expect(users).toHaveLength(1); // passes
+      //   expect(Users.username).toBe("lauravictoria"); // fails
+    });
+  });
+
+  describe("remove()", () => {
+    it("should remove a user from the db", async () => {
+      await Users.add({
+        username: "lauravictoria",
+        password: "cats",
+        department: "student"
+      });
+      const result = await Users.remove(1);
+      // stored in the result variable
+      expect(result).toEqual(1);
+
+      console.log(result);
+      // .first();
+    });
+  });
+});
+// set the result on line 38 to the expected variable on line 37
+// let result = expected
+// this is creating a new variable, not setting it to the existing one
+// result = expected
+// this is setting the result to be null
+// expected = result;
+// .where({ password })
+//   console.log(expected);
