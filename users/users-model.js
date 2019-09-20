@@ -19,6 +19,7 @@ function findBy(filter) {
 }
 
 async function add(user) {
+  // when you use async dont need .then or .catch (es7) (newest way)
   const [id] = await db("users").insert(user);
 
   return findById(id);
@@ -31,5 +32,8 @@ function findById(id) {
 }
 
 function remove(id) {
-  return db("users");
+  return db("users")
+    .where({ id: id })
+    .del();
+  // will return 1 or 0
 }

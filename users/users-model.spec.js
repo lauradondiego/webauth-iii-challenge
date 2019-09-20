@@ -20,7 +20,7 @@ describe("users model", () => {
         department: "student"
       });
       let users = await db("users");
-      console.log(users);
+      //   console.log(users);
       // expect(users).toHaveLength(0); // fails
       expect(users).toHaveLength(1); // passes
       //   expect(Users.username).toBe("lauravictoria"); // fails
@@ -29,7 +29,25 @@ describe("users model", () => {
 
   describe("remove()", () => {
     it("should remove a user from the db", async () => {
-      await Users.remove;
+      await Users.add({
+        username: "lauravictoria",
+        password: "cats",
+        department: "student"
+      });
+      const result = await Users.remove(1);
+      // stored in the result variable
+      expect(result).toEqual(1);
+
+      console.log(result);
+      // .first();
     });
   });
 });
+// set the result on line 38 to the expected variable on line 37
+// let result = expected
+// this is creating a new variable, not setting it to the existing one
+// result = expected
+// this is setting the result to be null
+// expected = result;
+// .where({ password })
+//   console.log(expected);

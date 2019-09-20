@@ -3,6 +3,7 @@ const server = require("./server");
 
 describe("server.js", () => {
   describe("GET /", () => {
+    // using supertest to hit the endpoint
     it("returns 200 OK", () => {
       return request(server)
         .get("/")

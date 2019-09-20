@@ -43,6 +43,9 @@ router.delete("/:id", (req, res) => {
   const { id } = req.params;
   Users.remove(id)
     .then(deleted => {
+      // since using .then dont need async in helper fx
+      console.log(deleted)
+
       if (deleted) {
         res.status(201).json({ removed: `user removed with ID of: ${id}` });
       } else {
